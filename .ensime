@@ -1,0 +1,13 @@
+;; This config was generated using ensime-config-gen. Feel free to customize its contents manually.
+
+(
+	:project-package "com.futurenotfound.appserve"
+	:use-sbt t
+	:sbt-subprojects (
+     (:name "shared" :deps ())
+     (:name "hub" :deps ("shared"))
+     (:name "runner" :deps ("shared"))
+     (:name "example1" :deps ())
+     (:name "example2" :deps ())
+  )
+)
