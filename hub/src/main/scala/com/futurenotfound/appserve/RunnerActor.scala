@@ -6,9 +6,9 @@ import java.io.File
 import org.slf4j.LoggerFactory
 import java.util.concurrent.atomic.AtomicBoolean
 
-case class RunnerActor(launchLocation: File) extends Actor {
+case class RunnerActor(launchLocation: File, managerPort: Int) extends Actor {
   val logger = LoggerFactory.getLogger(this.getClass)
-  val processBuilder = new ProcessBuilder("java", "-Dmanager.port=%s".format(RunnerActor.managerPort), "-cp", "\"*\"", "com.futurenotfound.appserve.ManagerActor")
+  val processBuilder = new ProcessBuilder("java", "-Dmanager.port=%s".format(managerPort), "-cp", "\"*\"", "com.futurenotfound.appserve.ManagerActor")
     .directory(launchLocation)
   val process = processBuilder.start()
   val keepRunning = new AtomicBoolean(true)
@@ -25,7 +25,7 @@ case class RunnerActor(launchLocation: File) extends Actor {
   })
   outputThread.start()
   logger.info("{}", processBuilder.command())
-  val managerActor = remote.actorFor(RunnerDetails.managerServiceName, RunnerActor.timeout, "localhost", RunnerActor.managerPort).start()
+  val managerActor = remote.actorFor(RunnerDetails.managerServiceName, RunnerActor.timeout, "localhost", managerPort).start()
   def receive = {
     case StopRunner => {
       keepRunning.set(false)
@@ -37,6 +37,5 @@ case class RunnerActor(launchLocation: File) extends Actor {
 }
 
 object RunnerActor {
-  val managerPort = 8972
   val timeout = 60 * 1000
 }

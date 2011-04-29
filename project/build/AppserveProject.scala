@@ -43,7 +43,7 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     FileUtilities.clean(distPath, log)
     copyProject(example1)
     copyProject(example2)
-    copyProject(hub, Path.from)
+    copyProject(hub, Path.fromString(hub.info.projectPath, "./scripts/launcher.bat"))
     copyProject(runner, "hub/runner")
     None
   }.dependsOn(this.`package`)

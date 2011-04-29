@@ -62,7 +62,7 @@
       <file leaf-file-name="RunnerActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="47" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
+            <state line="13" column="99" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,7 +71,7 @@
       <file leaf-file-name="ServerActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="42" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
+            <state line="40" column="48" selection-start="1573" selection-end="1573" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,7 +80,7 @@
       <file leaf-file-name="AppserveProject.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/build/AppserveProject.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="30" selection-start="2791" selection-end="2791" vertical-scroll-proportion="0.470948">
+            <state line="45" column="82" selection-start="2843" selection-end="2843" vertical-scroll-proportion="0.470948">
               <folding />
             </state>
           </provider>
@@ -107,7 +107,7 @@
       <file leaf-file-name="ManagerActor.scala" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/ManagerActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="13" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.0">
+            <state line="14" column="27" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -616,21 +616,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="47" selection-start="685" selection-end="685" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/project/build.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="200" selection-end="200" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/RunnerMessage.scala">
@@ -652,13 +640,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/ManagerActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="13" selection-start="2298" selection-end="2298" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/project/boot/scala-2.8.1/lib/scala-library.jar!/scala/Predef.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="8" selection-start="2308" selection-end="2308" vertical-scroll-proportion="0.3328336">
@@ -666,16 +647,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/ManagerActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="27" selection-start="530" selection-end="530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="99" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="42" selection-start="941" selection-end="941" vertical-scroll-proportion="0.0">
+        <state line="40" column="48" selection-start="1573" selection-end="1573" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/project/build/AppserveProject.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="30" selection-start="2791" selection-end="2791" vertical-scroll-proportion="0.470948">
+        <state line="45" column="82" selection-start="2843" selection-end="2843" vertical-scroll-proportion="0.470948">
           <folding />
         </state>
       </provider>

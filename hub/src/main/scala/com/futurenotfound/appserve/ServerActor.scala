@@ -1,9 +1,9 @@
 package com.futurenotfound.appserve
 
-import akka.actor.Actor._
 import java.io.File
 import org.apache.commons.io.FileUtils
 import akka.actor._
+import akka.actor.Actor._
 
 case class UpdateApplication(name: String, files: Map[String, Array[Byte]])
 
@@ -13,7 +13,7 @@ case object ReportApplications
 
 case object RestartServer
 
-case class ServerActor() extends Actor {
+case class ServerActor(managerPort: Int) extends Actor {
   val baseLocation = new File(".")
   val runnerLocation = new File(baseLocation, "runner").ensuring(file => file.exists(), "Runner location does not exist.")
   val dropLocation = new File(baseLocation, "drop")
@@ -21,7 +21,7 @@ case class ServerActor() extends Actor {
   val launchLocation = new File(baseLocation, "launch")
   launchLocation.mkdir()
   
-  private[this] def createRunner = actorOf(new RunnerActor(launchLocation)).start
+  private[this] def createRunner = actorOf(new RunnerActor(launchLocation, managerPort)).start
   private[this] def applicationLocation(name: String) = new File(dropLocation, name)
   private[this] var runnerActor = createRunner
 
@@ -56,9 +56,13 @@ object ServerActor {
     serverActor ! new UpdateApplication(name, dir.listFiles().collect{case file if file.isFile() => (file.getName, FileUtils.readFileToByteArray(file))}.toMap)
     serverActor ! RestartServer
   }
-  def startInstance = actorOf(new ServerActor()).start()
+  def startInstance = actorOf(new ServerActor(8971)).start()
 
   def main(args: Array[String]): Unit = {
-
+    val serviceName = "appserver"
+    val serverPort = System.getProperty("server.port").toInt
+    val managerPort = System.getProperty("manager.port").toInt
+    remote.start("localhost", serverPort) // Start the server
+    remote.register(serviceName, actorOf(new ServerActor(managerPort)))
   }
 }

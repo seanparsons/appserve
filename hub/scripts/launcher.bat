@@ -1,0 +1,1 @@
+java -Dmanager.port=8972 -Dserver.port=8971 -cp "*" com.futurenotfound.appserve.ServerActor
