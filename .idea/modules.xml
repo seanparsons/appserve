@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Appserve.iml" filepath="$PROJECT_DIR$/Appserve.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example1/example1.iml" filepath="$PROJECT_DIR$/example1/example1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example2/example2.iml" filepath="$PROJECT_DIR$/example2/example2.iml" />
       <module fileurl="file://$PROJECT_DIR$/hub/hub.iml" filepath="$PROJECT_DIR$/hub/hub.iml" />
       <module fileurl="file://$PROJECT_DIR$/runner/runner.iml" filepath="$PROJECT_DIR$/runner/runner.iml" />
       <module fileurl="file://$PROJECT_DIR$/project/sbt_project_definition.iml" filepath="$PROJECT_DIR$/project/sbt_project_definition.iml" />

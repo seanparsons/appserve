@@ -1,0 +1,1 @@
+java -cp "*" -Dakka.config=akka.conf com.futurenotfound.appserve.Server --serverPort 8971 --appName %1 --appDir %2 push

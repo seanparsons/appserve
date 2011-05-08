@@ -1,7 +1,6 @@
 package com.futurenotfound.appserve.boot
 
 import org.apache.camel.builder.RouteBuilder
-import org.apache.camel.model.RouteDefinition
 
 class TestRouteBuilder2 extends RouteBuilder {
   @throws(classOf[Exception])

@@ -18,9 +18,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="buildScala" level="project" />
+    <orderEntry type="module" module-name="example2" />
     <orderEntry type="module" module-name="shared" />
     <orderEntry type="module" module-name="runner" />
     <orderEntry type="module" module-name="hub" />
+    <orderEntry type="module" module-name="example1" />
   </component>
 </module>
 

@@ -1,1 +1,1 @@
-java -Dmanager.port=8972 -Dserver.port=8971 -cp "*" com.futurenotfound.appserve.ServerActor
+java -cp "*" -Dakka.config=akka.conf com.futurenotfound.appserve.Server --serverPort 8971 launch

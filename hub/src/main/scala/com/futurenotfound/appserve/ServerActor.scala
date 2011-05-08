@@ -13,7 +13,7 @@ case object ReportApplications
 
 case object RestartServer
 
-case class ServerActor(managerPort: Int) extends Actor {
+case class ServerActor() extends Actor {
   val baseLocation = new File(".")
   val runnerLocation = new File(baseLocation, "runner").ensuring(file => file.exists(), "Runner location does not exist.")
   val dropLocation = new File(baseLocation, "drop")
@@ -21,21 +21,29 @@ case class ServerActor(managerPort: Int) extends Actor {
   val launchLocation = new File(baseLocation, "launch")
   launchLocation.mkdir()
   
-  private[this] def createRunner = actorOf(new RunnerActor(launchLocation, managerPort)).start
+  private[this] def createRunner = actorOf(new RunnerActor(launchLocation)).start
   private[this] def applicationLocation(name: String) = new File(dropLocation, name)
-  private[this] var runnerActor = createRunner
+  private[this] var runnerActor: ActorRef = null
 
   def receive = {
     case RestartServer => {
-      runnerActor !! StopRunner
-      runnerActor.stop()
-      runnerLocation.listFiles().foreach(file => file.delete())
+      if (runnerActor != null) {
+        log.info("Restarting runner.")
+        runnerActor !! StopRunner
+        log.info("StopRunner message sent.")
+        runnerActor.stop()
+        log.info("Stopped actor.")
+      }
+      launchLocation.listFiles().foreach(file => file.delete())
       // Combine the files for each of the applications with those of the runner and put them into the launch location.
       (dropLocation.listFiles().flatMap(file => file.listFiles()) ++ runnerLocation.listFiles())
         .foreach(file => FileUtils.copyFileToDirectory(file, launchLocation))
+      log.info("Files to launch recombined: %s", launchLocation.listFiles())
       runnerActor = createRunner
+      log.info("Runner recreated.")
     }
     case UpdateApplication(name, files) => {
+      log.info("Updating application %s".format(name))
       val appLocation = applicationLocation(name)
       appLocation.delete()
       appLocation.mkdir()
@@ -43,6 +51,7 @@ case class ServerActor(managerPort: Int) extends Actor {
         val file = new File(appLocation, filename)
         FileUtils.writeByteArrayToFile(file, fileContents)
       }
+      log.info("Updated application %s".format(name))
     }
     case RemoveApplication(name) => applicationLocation(name).delete()
     case ReportApplications => {
@@ -53,16 +62,8 @@ case class ServerActor(managerPort: Int) extends Actor {
 
 object ServerActor {
   def addApplication(serverActor: ActorRef, name: String, dir: File) = {
-    serverActor ! new UpdateApplication(name, dir.listFiles().collect{case file if file.isFile() => (file.getName, FileUtils.readFileToByteArray(file))}.toMap)
-    serverActor ! RestartServer
+    serverActor !! new UpdateApplication(name, dir.listFiles().collect{case file if file.isFile() => (file.getName, FileUtils.readFileToByteArray(file))}.toMap)
+    serverActor !! RestartServer
   }
-  def startInstance = actorOf(new ServerActor(8971)).start()
-
-  def main(args: Array[String]): Unit = {
-    val serviceName = "appserver"
-    val serverPort = System.getProperty("server.port").toInt
-    val managerPort = System.getProperty("manager.port").toInt
-    remote.start("localhost", serverPort) // Start the server
-    remote.register(serviceName, actorOf(new ServerActor(managerPort)))
-  }
+  def startInstance = actorOf(new ServerActor()).start()
 }

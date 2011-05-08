@@ -11,6 +11,7 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
   lazy val example2: ExampleProject = project("example2", "example2", new ExampleProject(_))
   val AKKA_VERSION = "1.0"
   val CAMEL_VERSION = "2.6.0"
+  val SLF4J_VERSION = "1.6.1"
   val scalaToolsSnapshots = "Scala Tools Snapshots" at "http://scala-tools.org/repo-snapshots/"
   
   object Dependencies {
@@ -21,8 +22,9 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     lazy val junit = "junit" % "junit" % "4.8.2" % "test"
     lazy val mockito = "org.mockito" % "mockito-all" % "1.8.5" % "test"
     lazy val specs2 = "org.specs2" %% "specs2" % "1.1" % "test"
-    lazy val jclOverSLF4J = "org.slf4j" % "jcl-over-slf4j" % "1.6.1" % "test"
-    lazy val scopt = "com.github.scopt" %% "scopt" % "1.0.0-SNAPSHOT"
+    lazy val jclOverSLF4J = "org.slf4j" % "jcl-over-slf4j" % SLF4J_VERSION % "test"
+    lazy val slf4j = "org.slf4j" % "slf4j-api" % SLF4J_VERSION
+    lazy val logback = "ch.qos.logback"	% "logback-classic" % "0.9.28"
   }
 
   val distPath = Path.fromString(info.projectPath, "./dist")
@@ -43,30 +45,30 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     FileUtilities.clean(distPath, log)
     copyProject(example1)
     copyProject(example2)
-    copyProject(hub, Path.fromString(hub.info.projectPath, "./scripts/launcher.bat"))
+    copyProject(hub, (hub.info.projectPath / "scripts") * AllPassFilter)
     copyProject(runner, "hub/runner")
     None
   }.dependsOn(this.`package`)
 
-  abstract class AbstractAppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaProject with ScctProject with AkkaProject {
+  abstract class AbstractAppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaProject with ScctProject {
     def specs2Framework = new TestFramework("org.specs2.runner.SpecsFramework")
     override def testFrameworks = super.testFrameworks ++ Seq(specs2Framework)
     lazy val junit = Dependencies.junit
     lazy val mockito = Dependencies.mockito
     lazy val specs2 = Dependencies.specs2
     lazy val jclOverSLF4J = Dependencies.jclOverSLF4J
+    lazy val slf4j = Dependencies.slf4j
   }
 
   class RunnerProject(info: ProjectInfo) extends AbstractAppserveProject(info) {
-    lazy val akkaRemote = Dependencies.akkaRemote
     lazy val commonsIO = Dependencies.commonsIO
     lazy val camelCore = Dependencies.camelCore
+    lazy val logback = Dependencies.logback
   }
 
-  class HubProject(info: ProjectInfo) extends AbstractAppserveProject(info) {
+  class HubProject(info: ProjectInfo) extends AbstractAppserveProject(info) with AkkaProject {
     lazy val akkaRemote = Dependencies.akkaRemote
     lazy val commonsIO = Dependencies.commonsIO
-    lazy val scopt = Dependencies.scopt
     override def mainClass = Some("com.futurenotfound.appserve.ServerActor")
   }
 

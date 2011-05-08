@@ -36,7 +36,7 @@ class ManagerActorSpec extends Specification with Mockito {
   loggerContext.reset()
 
   override def is =
-  "ManagerActor should"                                     ^ sequential ^
+  "Runner should"                                     ^ sequential ^
     "shutdown the camel route correctly"                    ! AroundManagerActor(stopRunner(_)) ^
     "stop all the routes when told to"                      ! AroundManagerActor(stopRoutes(_)) ^
     "restart all the routes after stopping them"            ! AroundManagerActor(stopAndStartRoutes(_)) ^
@@ -50,7 +50,7 @@ class ManagerActorSpec extends Specification with Mockito {
       result
     }
 
-    def outside = actorOf(new ManagerActor(List(classOf[TestRouteBuilder]))).start()
+    def outside = actorOf(new Runner(List(classOf[TestRouteBuilder]))).start()
   }
 
   def stopRunner(managerActor: ActorRef) = {

@@ -53,15 +53,6 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/slf4j-api-1.6.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/akka-stm-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -71,7 +62,34 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/slf4j-api-1.6.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
           <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/commons-codec-1.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/test/jcl-over-slf4j-1.6.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/sbinary-2.8.0-0.3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -90,15 +108,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/dispatch-json_2.8.0-0.7.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/sbinary-2.8.0-0.3.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -189,6 +198,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/test/scalacheck_2.8.1-1.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="" scope="TEST">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/slf4j-api-1.6.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -323,7 +341,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/h2-lzf-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/akka-actor-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -332,7 +350,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/akka-actor-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/h2-lzf-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -359,7 +377,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/aopalliance-1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/configgy-2.0.2-nologgy.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -368,7 +386,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/configgy-2.0.2-nologgy.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/aopalliance-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -410,6 +428,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/commons-io-2.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="module-library" exported="" scope="TEST">
       <library>
         <CLASSES>
@@ -422,7 +449,7 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/commons-io-2.0.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/hawtdispatch-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -432,15 +459,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/sjson-0.8-2.8.0.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/lib_managed/scala_2.8.1/compile/hawtdispatch-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
