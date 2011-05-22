@@ -6,16 +6,19 @@ import org.apache.camel.builder.RouteBuilder
 import org.slf4j.LoggerFactory
 import java.util.jar.JarFile
 import ch.qos.logback.classic.joran.JoranConfigurator
-import ch.qos.logback.classic.{PatternLayout, LoggerContext}
 import ch.qos.logback.classic.spi.ILoggingEvent
 import ch.qos.logback.core.FileAppender
 import ch.qos.logback.core.util.StatusPrinter
 import java.util.GregorianCalendar
+import ch.qos.logback.core.encoder.LayoutWrappingEncoder
+import ch.qos.logback.core.pattern.PatternLayoutBase
+import ch.qos.logback.classic.{Level, PatternLayout, LoggerContext}
 
 case class Runner[T <: RouteBuilder](val routeBuilders: Seq[Class[T]]) {
   val logger = LoggerFactory.getLogger(classOf[Runner[_]])
   def run() = {
     val camelContext = new DefaultCamelContext()
+    camelContext.disableJMX()
     routeBuilders.foreach{clazz =>
       logger.info("Including RouteBuilder {}", clazz)
       camelContext.addRoutes(clazz.newInstance())
@@ -30,21 +33,26 @@ case class Runner[T <: RouteBuilder](val routeBuilders: Seq[Class[T]]) {
 }
 
 object Runner {
+  // Set up the logging as part of the initialisation of this class, before anything else happens.
   val context = LoggerFactory.getILoggerFactory().asInstanceOf[LoggerContext]
   context.reset()
   val patternLayout = new PatternLayout()
   patternLayout.setContext(context)
   patternLayout.setPattern("%d:%-5level %logger - %msg%n")
   patternLayout.start()
+  val encoder = new LayoutWrappingEncoder[ILoggingEvent]()
+  encoder.setLayout(patternLayout)
   val appender = new FileAppender[ILoggingEvent]()
   appender.setFile("runner.log")
   appender.setContext(context)
-  appender.setLayout(patternLayout)
+  appender.setEncoder(encoder)
   appender.start()
   val rootLogger = context.getLogger("root")
-  rootLogger.addAppender(appender);
+  rootLogger.setLevel(Level.INFO)
+  rootLogger.addAppender(appender)
   context.start()
-  StatusPrinter.printInCaseOfErrorsOrWarnings(context);
+
+  StatusPrinter.printInCaseOfErrorsOrWarnings(context)
 
   val logger = LoggerFactory.getLogger(this.getClass)
   val routePackage = "com.futurenotfound.appserve.boot"

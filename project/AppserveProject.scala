@@ -1,19 +1,15 @@
 import sbt._
-import sbt.CompileOrder._
+import Keys._
 import java.io.File
-import reaktor.scct.ScctProject
 
-class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaProject {
-  lazy val shared = project("shared", "shared", new SharedProject(_))
-  lazy val hub = project("hub", "hub", new HubProject(_), shared)
-  lazy val runner = project("runner", "runner", new RunnerProject(_), shared)
-  lazy val example1 = project("example1", "example1", new Example1Project(_))
-  lazy val example2 = project("example2", "example2", new Example2Project(_))
-  val AKKA_VERSION = "1.0"
-  val CAMEL_VERSION = "2.6.0"
+object AppserveBuild extends Build {
+  val AKKA_VERSION = "1.1"
+  val CAMEL_VERSION = "2.7.0"
   val SLF4J_VERSION = "1.6.1"
-  val scalaToolsSnapshots = "Scala Tools Snapshots" at "http://scala-tools.org/repo-snapshots/"
-  
+
+  //resolvers += JavaNet1Repository
+  //resolvers += "Akka Repo" at "http://akka.io/repository"
+
   object Dependencies {
     lazy val akkaRemote = "se.scalablesolutions.akka" % "akka-remote" % AKKA_VERSION
     lazy val commonsIO = "commons-io" % "commons-io" % "2.0.1"
@@ -25,8 +21,27 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     lazy val jclOverSLF4J = "org.slf4j" % "jcl-over-slf4j" % SLF4J_VERSION
     lazy val slf4j = "org.slf4j" % "slf4j-api" % SLF4J_VERSION
     lazy val logback = "ch.qos.logback"	% "logback-classic" % "0.9.28"
-  }
 
+    //def specs2Framework = new TestFramework("org.specs2.runner.SpecsFramework")
+    lazy val additionalTestDependencies = Seq(Dependencies.junit, Dependencies.mockito, Dependencies.specs2, Dependencies.jclOverSLF4J, Dependencies.slf4j)
+  }
+  lazy val projects = Seq(root, shared, hub, runner, example1, example2)
+
+  lazy val root = Project("root", file(".")) aggregate(hub, runner)
+  lazy val shared = Project("shared", file("shared")) settings (
+    libraryDependencies += Dependencies.commonsIO
+  )
+  lazy val hub = Project("hub", file("hub")) dependsOn(shared) settings {
+    libraryDependencies ++= Seq(Dependencies.akkaRemote, Dependencies.commonsIO)
+    resolvers += "Akka Repo" at "http://akka.io/repository"
+  }
+  lazy val runner = Project("runner", file("runner")) dependsOn(shared) settings (
+    libraryDependencies ++= Seq(Dependencies.commonsIO, Dependencies.camelCore, Dependencies.logback)
+  )
+  lazy val example1 = Project("example1", file("example1"), delegates = root :: Nil)
+  lazy val example2 = Project("example2", file("example2"), delegates = root :: Nil)
+
+  /*
   val distPath = Path.fromString(info.projectPath, "./dist")
   def copyProject(project: AbstractAppserveProject, subPath: String, additionalFiles: PathFinder): Any = {
     val projectName = project.projectName.get.get
@@ -49,7 +64,6 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     copyProject(runner, "hub/runner")
     None
   }.dependsOn(this.`package`)
-
   abstract class AbstractAppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaProject with ScctProject {
     def specs2Framework = new TestFramework("org.specs2.runner.SpecsFramework")
     override def testFrameworks = super.testFrameworks ++ Seq(specs2Framework)
@@ -85,4 +99,5 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     lazy val camelJetty = Dependencies.camelJetty
     lazy val camelCore = Dependencies.camelCore
   }
+  */
 }

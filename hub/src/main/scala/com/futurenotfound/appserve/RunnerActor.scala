@@ -13,11 +13,14 @@ case class RunnerActor(launchLocation: File) extends Actor {
   log.info("Running: %s".format(processBuilder))
   def receive = {
     case StopRunner => {
-      process.destroy()
+      self.reply(process.destroy())
     }
   }
 
-  override def postStop = process.destroy()
+  override def postStop = {
+    println("Destroying process")
+    process.destroy()
+  }
 }
 
 object RunnerActor {

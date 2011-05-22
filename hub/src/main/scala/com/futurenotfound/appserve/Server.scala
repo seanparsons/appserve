@@ -4,16 +4,13 @@ import akka.actor.Actor._
 import java.io.File
 import akka.remote.RemoteServerSettings
 import java.net.{InetSocketAddress, InetAddress}
+import org.slf4j.LoggerFactory
+import ch.qos.logback.classic.{Level, LoggerContext}
 
 object Server {
   def main(args: Array[String]): Unit = {
-    Runtime.getRuntime.addShutdownHook(new Thread() {
-      new Runnable() {
-        def run(): Unit = {
-          registry.shutdownAll()
-        }
-      }
-    })
+    val context = LoggerFactory.getILoggerFactory().asInstanceOf[LoggerContext]
+    context.getLogger("root").setLevel(Level.INFO)
 
     val serviceName = "appserver"
     val serverPortOption = new CommandLineOption("Server Port", "Server Port", "serverPort")
@@ -27,6 +24,9 @@ object Server {
         case "launch" => {
           remote.start("localhost", serverPort) // Start the server
           remote.register(serviceName, actorOf(new ServerActor()))
+          while (System.in.read().toChar != 'q') {}
+          registry.shutdownAll()
+          System.exit(0)
         }
         case "push" => {
           val appName = options(appNameOption.optionName)
@@ -34,7 +34,6 @@ object Server {
           val serverRef = remote.actorFor(serviceName, "localhost", serverPort)
           ServerActor.addApplication(serverRef, appName, new File(appDir))
           remote.shutdownClientConnection(InetSocketAddress.createUnresolved("localhost", serverPort))
-          System.exit(0)
         }
       }
     }
