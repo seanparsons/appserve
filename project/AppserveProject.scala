@@ -7,8 +7,8 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
   lazy val shared = project("shared", "shared", new SharedProject(_))
   lazy val hub = project("hub", "hub", new HubProject(_), shared)
   lazy val runner = project("runner", "runner", new RunnerProject(_), shared)
-  lazy val example1: ExampleProject = project("example1", "example1", new ExampleProject(_))
-  lazy val example2: ExampleProject = project("example2", "example2", new ExampleProject(_))
+  lazy val example1 = project("example1", "example1", new Example1Project(_))
+  lazy val example2 = project("example2", "example2", new Example2Project(_))
   val AKKA_VERSION = "1.0"
   val CAMEL_VERSION = "2.6.0"
   val SLF4J_VERSION = "1.6.1"
@@ -22,7 +22,7 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     lazy val junit = "junit" % "junit" % "4.8.2" % "test"
     lazy val mockito = "org.mockito" % "mockito-all" % "1.8.5" % "test"
     lazy val specs2 = "org.specs2" %% "specs2" % "1.1" % "test"
-    lazy val jclOverSLF4J = "org.slf4j" % "jcl-over-slf4j" % SLF4J_VERSION % "test"
+    lazy val jclOverSLF4J = "org.slf4j" % "jcl-over-slf4j" % SLF4J_VERSION
     lazy val slf4j = "org.slf4j" % "slf4j-api" % SLF4J_VERSION
     lazy val logback = "ch.qos.logback"	% "logback-classic" % "0.9.28"
   }
@@ -72,9 +72,16 @@ class AppserveProject(info: ProjectInfo) extends DefaultProject(info) with IdeaP
     override def mainClass = Some("com.futurenotfound.appserve.ServerActor")
   }
 
-  class SharedProject(info: ProjectInfo) extends AbstractAppserveProject(info)
+  class SharedProject(info: ProjectInfo) extends AbstractAppserveProject(info) {
+    lazy val commonsIO = Dependencies.commonsIO
+  }
 
-  class ExampleProject(info: ProjectInfo) extends AbstractAppserveProject(info) {
+  class Example1Project(info: ProjectInfo) extends AbstractAppserveProject(info) {
+    lazy val camelJetty = Dependencies.camelJetty
+    lazy val camelCore = Dependencies.camelCore
+  }
+
+  class Example2Project(info: ProjectInfo) extends AbstractAppserveProject(info) {
     lazy val camelJetty = Dependencies.camelJetty
     lazy val camelCore = Dependencies.camelCore
   }
