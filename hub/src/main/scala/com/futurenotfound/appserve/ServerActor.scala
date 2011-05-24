@@ -6,7 +6,7 @@ import org.apache.commons.io.{IOUtils, FileUtils}
 import java.io.{FilenameFilter, FileOutputStream, IOException, File}
 import scala.collection.JavaConversions._
 import java.util.jar.{JarEntry, JarFile}
-import org.slf4j.LoggerFactory
+import org.slf4j._
 
 case class UpdateApplication(name: String, files: Set[FileData])
 
@@ -44,6 +44,7 @@ case class ApplicationDetails(name: String, files: Seq[BundleJarFile]) {
 }
 
 case class ServerActor() extends Actor {
+  val logger = LoggerFactory.getLogger(classOf[ServerActor])
   val baseLocation = new File(".")
   val runnerLocation = new File(baseLocation, "runner").ensuring(file => file.exists(), "Runner location does not exist.")
   val dropLocation = new File(baseLocation, "drop")
@@ -91,18 +92,18 @@ case class ServerActor() extends Actor {
   def receive = {
     case RestartServer => {
       if (runnerActor != null) {
-        log.info("Restarting runner.")
+        logger.info("Restarting runner.")
         runnerActor !! StopRunner
-        log.info("StopRunner message sent.")
+        logger.info("StopRunner message sent.")
         runnerActor.stop()
-        log.info("Stopped actor.")
+        logger.info("Stopped actor.")
       }
       runnerActor = deployAndStartRunner
-      log.info("Runner recreated.")
+      logger.info("Runner recreated.")
       self.reply(true)
     }
     case UpdateApplication(applicationName, files) => {
-      log.info("Updating application %s".format(applicationName))
+      logger.info("Updating application %s".format(applicationName))
       tempLocation.delete()
       tempLocation.mkdir()
       // Compare file checksums from detail sent and reply with file details for those files that need sending.
@@ -125,7 +126,7 @@ case class ServerActor() extends Actor {
           // If there are conflicts, then report back to the sender.
           // If there are none, replace the old application with this one.
           unbecome
-          log.info("Updated application %s".format(applicationName))
+          logger.info("Updated application %s".format(applicationName))
         }
       }
     }

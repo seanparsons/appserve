@@ -2,26 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35a512b5-9236-4bda-a853-97f0fd1e1f17" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/FileData.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/IO.scala" />
-      <change type="DELETED" beforePath="C:\Users\Sean\workspace\appserve\project\build.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sean\workspace\appserve\project\plugins\Plugins.scala" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sean\workspace\appserve\project\plugins\project\build.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sean\workspace\appserve\project\sbt_project_definition.iml" afterPath="" />
-      <change type="MOVED" beforePath="C:\Users\Sean\workspace\appserve\project\build\AppserveProject.scala" afterPath="$PROJECT_DIR$/project/AppserveProject.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Appserve.iml" afterPath="$PROJECT_DIR$/Appserve.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala" afterPath="$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hub/hub.iml" afterPath="$PROJECT_DIR$/hub/hub.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala" afterPath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/Server.scala" afterPath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/Server.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala" afterPath="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runner/runner.iml" afterPath="$PROJECT_DIR$/runner/runner.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/Runner.scala" afterPath="$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/Runner.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/shared.iml" afterPath="$PROJECT_DIR$/shared/shared.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/project/AppserveProject.scala" afterPath="$PROJECT_DIR$/project/AppserveProject.scala" />
     </list>
     <ignored path="appserve.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +67,34 @@
       <file leaf-file-name="AppserveProject.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/project/AppserveProject.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="54" selection-start="571" selection-end="571" vertical-scroll-proportion="0.40236688">
+            <state line="28" column="9" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.24556214">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RunnerActor.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="7" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServerActor.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="140" column="16" selection-start="6230" selection-end="6230" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.scala" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/Server.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="23" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -109,15 +120,15 @@
         <option value="$PROJECT_DIR$/shared/src/main/scala/sbt/Process/ProcessImpl.scala" />
         <option value="$PROJECT_DIR$/example2/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder2.scala" />
         <option value="$PROJECT_DIR$/runner/src/main/scala/com/futurenotfound/appserve/Runner.scala" />
-        <option value="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala" />
         <option value="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/Server.scala" />
-        <option value="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala" />
         <option value="$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/IO.scala" />
         <option value="$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/FileData.scala" />
         <option value="$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala" />
-        <option value="$PROJECT_DIR$/project/plugins/Plugins.scala" />
         <option value="$PROJECT_DIR$/project/build/AppserveProject.scala" />
         <option value="$PROJECT_DIR$/project/build.properties" />
+        <option value="$PROJECT_DIR$/project/plugins/Plugins.scala" />
+        <option value="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala" />
+        <option value="$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala" />
         <option value="$PROJECT_DIR$/project/AppserveProject.scala" />
       </list>
     </option>
@@ -171,9 +182,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -234,7 +242,125 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="runner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="runner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Runner.scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="runner" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="appserve" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -282,6 +408,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -491,11 +620,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="69" selection-start="3947" selection-end="3947" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/RunnerMessage.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="12" selection-start="86" selection-end="86" vertical-scroll-proportion="0.0" />
@@ -504,11 +628,6 @@
     <entry file="file://$PROJECT_DIR$/example1/src/main/scala/com/futurenotfound/appserve/boot/TestRouteBuilder1.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="28" selection-start="384" selection-end="384" vertical-scroll-proportion="0.24745269" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="35" selection-start="516" selection-end="516" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/scala/com/futurenotfound/appserve/IO.scala">
@@ -526,6 +645,20 @@
         <state line="7" column="39" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/RunnerActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="7" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/ServerActor.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="140" column="16" selection-start="6230" selection-end="6230" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hub/src/main/scala/com/futurenotfound/appserve/Server.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="23" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0" />
@@ -533,7 +666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/project/AppserveProject.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="54" selection-start="571" selection-end="571" vertical-scroll-proportion="0.40236688">
+        <state line="28" column="9" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.24556214">
           <folding />
         </state>
       </provider>

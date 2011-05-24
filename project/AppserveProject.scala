@@ -1,3 +1,4 @@
+import com.sun.java.swing.plaf.windows.WindowsTableHeaderUI
 import sbt._
 import Keys._
 import java.io.File
@@ -7,8 +8,10 @@ object AppserveBuild extends Build {
   val CAMEL_VERSION = "2.7.0"
   val SLF4J_VERSION = "1.6.1"
 
-  //resolvers += JavaNet1Repository
-  //resolvers += "Akka Repo" at "http://akka.io/repository"
+  object Repositories {
+    val guiceyfruit = "Guiceyfruit Repo" at "http://guiceyfruit.googlecode.com/svn/repo/releases/"
+    val akka = "Akka Repo" at "http://akka.io/repository"
+  }
 
   object Dependencies {
     lazy val akkaRemote = "se.scalablesolutions.akka" % "akka-remote" % AKKA_VERSION
@@ -31,10 +34,10 @@ object AppserveBuild extends Build {
   lazy val shared = Project("shared", file("shared")) settings (
     libraryDependencies += Dependencies.commonsIO
   )
-  lazy val hub = Project("hub", file("hub")) dependsOn(shared) settings {
-    libraryDependencies ++= Seq(Dependencies.akkaRemote, Dependencies.commonsIO)
-    resolvers += "Akka Repo" at "http://akka.io/repository"
-  }
+  lazy val hub = Project("hub", file("hub")) dependsOn(shared) settings (
+    libraryDependencies ++= Seq(Dependencies.akkaRemote, Dependencies.commonsIO, Dependencies.slf4j, Dependencies.logback),
+    resolvers ++= Seq(Repositories.guiceyfruit, Repositories.akka)
+  )
   lazy val runner = Project("runner", file("runner")) dependsOn(shared) settings (
     libraryDependencies ++= Seq(Dependencies.commonsIO, Dependencies.camelCore, Dependencies.logback)
   )
